@@ -1,0 +1,17 @@
+{
+    "myTodo": [
+        {
+            "priority": "1",
+            "date": "2021-02-21 18:17:47",
+            "text": "asd",
+            "checkbox": false
+        },
+        {
+            "priority": "1",
+            "date": "2021-02-21 18:17:48",
+            "text": "asd",
+            "checkbox": false
+        }
+    ],
+    "id": 2
+}
