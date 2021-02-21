@@ -40,7 +40,16 @@ app.get("/:id",(req,res)=>{
     const {id}= req.params;
     try{
       if(id>0){
-      let data=fs.readFileSync(`./database/${id}.json`,"utf-8");
+        let zero;
+        if(id<10&&id>0)
+          zero="000";
+        else if(id<100&&id>9)
+          zero="00";
+        else if(id<1000&id>99)
+          zero="0";
+        else
+          zero=0;
+      let data=fs.readFileSync(`./database/${zero+id}.json`,"utf-8");
       res.send(data);
       console.log("undo");
       }
@@ -71,6 +80,7 @@ app.post("/", (req, res) => {
         zero=0;
       fs.writeFileSync(`./database/${zero+body.id}.json`,JSON.stringify(body, null, 4));
       res.status(201).send(`item ${body.id} added`);
+      console.log("updated list")
     } catch (e) {
       res.status(500).json({ message: "Error!", error: e });
     }
