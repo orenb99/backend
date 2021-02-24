@@ -8,12 +8,13 @@ const e = require("express");
 const app = express();
 app.use(express.json());
 
-// function wait(res,req,next){
-//   setTimeout(()=>{
-//     next();
-//   },1000);
-// }
-// app.use(wait);
+function wait(res,req,next){
+  setTimeout(()=>{
+    next();
+  },1000);
+}
+app.use(wait);
+
 app.get("/",(req,res)=>{
   try{
     fs.readdir("./database/",(err,files)=>{
